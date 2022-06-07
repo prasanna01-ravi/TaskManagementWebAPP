@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="p-22 text-align-center">
+        <h2>Add Reminder</h2>
+
+    </div>
+    <form [formGroup]="form">
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Name of Reminder</mat-label>
+                <input matInput placeholder="Learn React" formControlName="name" required>
+                <mat-icon matSuffix>info</mat-icon>
+                <mat-error *ngIf="name?.invalid && name?.errors?.['required']">The Field is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Due Date</mat-label>
+                <input matInput placeholder="2022-06-03" formControlName="dueDate" [min]="minDate" [matDatepicker]="picker"
+                     required (click)="picker.open()" />
+                <mat-hint>YYYY-MM-DD</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="dueDate?.invalid && dueDate?.errors?.['required']">The Field is required
+                </mat-error>
+                <mat-error *ngIf="dueDate?.invalid && dueDate?.errors?.['GreaterThanOrEqualToToDay']">Due date should be equal or greater than today
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <br />
+        <div class="btn-wrapper">
+            <button mat-raised-button color="primary" (click)="OnSubmit()">Submit</button>
+            <button mat-raised-button (click)="OnCancel()">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+<!-- Resources -->
+<h2>Tasker</h2>
+<br /> <br />
+
+<div class="container">
+    <div class="p-22 left-align new-button">
+        <button class="button" (click)="AddNewReminder()">New</button>
+        <br /> <br />
+    </div>
+    <div class="p-22 my-card mdc-card">
+        <div class="mdc-card__primary-action" tabindex="0">
+            <!-- content within actionable area -->
+            <div class="mdc-card__ripple"></div>
+        </div>
+        <div class="wrapper">
+
+        </div>
+        <div class="my-card p-22 mdc-card" *ngFor="let task of this.tasks; index as i;">
+            <div class="mdc-card__primary-action" tabindex="0">
+                <!-- content within actionable area -->
+                <div class="mdc-card__ripple"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="mb-10"><strong>{{task.taskName}}</strong></div>
+                    <div class="col-xs-4 col-4 col-md-4 form-group fs-12">
+                        <span class="fa fa-calendar pr-6"></span>
+                        <span>{{task.dueDate}}</span>
+                    </div>
+                </div>
+                <div class="col-md-3 left-align"> 
+                    <mat-checkbox color="primary" [checked]="task.completed" (change)="changeCompletionState($event, task.id)"></mat-checkbox>
+                </div>
+            </div>            
+        </div>
+
+        <!-- ... content ... -->
+    </div>
+</div>

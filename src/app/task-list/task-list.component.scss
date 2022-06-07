@@ -1,0 +1,76 @@
+@use "@material/card";
+@use "@material/list";
+@use '@angular/material' as mat;
+
+@include card.core-styles;
+@include mat.core();
+
+.container {
+    input[type=checkbox] {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(2);
+        /* IE */
+        -moz-transform: scale(2);
+        /* FF */
+        -webkit-transform: scale(2);
+        /* Safari and Chrome */
+        -o-transform: scale(2);
+        /* Opera */
+        transform: scale(2);
+        padding: 10px;
+    }
+
+    .mat-checkbox .mat-checkbox-frame {
+        transform: scale(2);
+    }
+
+    .mat-checkbox-checked .mat-checkbox-background {
+        transform: scale(2);
+    }
+
+    .button {
+        border-radius: 2px;
+        padding: 12px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .my-card-content {
+        padding: 16px;
+    }
+
+    div.my-card {
+        min-height: 90px;
+        min-width: 450px;
+        margin-bottom: 25px;
+
+        &.p-22 {
+            padding: 22px !important;
+        }
+    }
+
+    .left-align {
+        float: right;
+        margin-top: -35px;
+        padding-right: 15px;
+
+        &.new-button {
+            margin-top: -65px;
+        }
+    }
+}
+
+.fs-12 {
+    font-size: 12px !important;
+}
+
+.pr-6 {
+    padding-right: 6px !important;
+}
+
+.mb-10 {
+    margin-bottom: 10px !important;
+}
